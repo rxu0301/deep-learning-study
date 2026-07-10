@@ -1,0 +1,86 @@
+# AI Learning Repository - .gitignore
+
+## Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+## Large Data Files (>50MB)
+Colab\ Notebooks/data/
+빅데이터\ 분석/CSV\ 3-19/
+빅데이터\ 분석/CSV\ 4-2/
+빅데이터\ 분석/seoul/
+빅데이터\ 분석/titanic/
+빅데이터\ 분석/05.13/
+빅데이터\ 분석/0618/
+deep-learning-study-main/dataset/
+
+## Specific Large Files
+*.xlsx
+*.csv
+*.zip
+*.data
+*.npy
+
+## Evaluation & Assessment Files (수행평가, 평가문제 등)
+*수행평가.ipynb
+*평가.ipynb
+*과제*.ipynb
+*기획서*
+*보고서*
+*코드평가*
+*코드수행평가*
+*코드평가문제*
+*assessment*.ipynb
+*evaluation*.ipynb
+*planning*
+*report*
+
+## Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+## Virtual Environments
+venv/
+ENV/
+env/
+
+## IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Temporary Files
+*.tmp
+*.bak
+.~*
+
+## TensorFlow/Keras
+*.h5
+*.pb
+saved_models/
+logs/
+runs/
