@@ -1,203 +1,196 @@
-# 미래유망 1학년 - AI 기초 학습 저장소 (2024년 후반기)
+# 미래유망_1학년 전체 설정 가이드
 
-> 2024년 9월 ~ 11월, 1학기 AI 교육 과정에서 학습한 기초 내용을 정리한 저장소입니다.
+## 📋 프로젝트 개요
 
-## 📚 학습 개요
+이 프로젝트는 pandas, matplotlib, numpy를 학습하는 학생들을 위해 모든 출력 파일(그래프, CSV, Excel 등)이 자동으로 정리된 폴더에 저장되도록 설정되어 있습니다.
 
-이 저장소는 Python 데이터 분석 라이브러리 기초부터 기본 딥러닝 개념까지 초급 수준의 학습 내용을 담고 있습니다.
-NumPy, Pandas, Matplotlib, OpenCV, 그리고 TensorFlow/Keras를 활용하여 데이터 처리, 시각화, 그리고 신경망 기초를 학습했습니다.
+## 🎯 주요 설정 사항
 
-## 🎯 학습 내용 요약
+### 1. 한국어 폰트 자동 설정
+모든 matplotlib을 사용하는 파일에 자동으로 한국어 폰트가 설정됩니다:
+- **Windows**: Malgun Gothic (맑은 고딕)
+- **macOS**: AppleGothic
+- **Linux**: Noto Sans CJK JP
 
-### 1. 기초 라이브러리 (NumPy, Pandas)
-- **NumPy**: 배열 연산, 선형대수, 행렬 조작
-- **Pandas**: 데이터프레임 생성 및 조작, 데이터 전처리 기초
-
-### 2. 데이터 시각화 (Matplotlib, Seaborn)
-- 기본 차트: 라인 플롯, 산점도, 히스토그램, 박스플롯
-- 고급 시각화: 다중 플롯, 색상 매핑, 스타일 지정
-
-### 3. 이미지 처리 (OpenCV)
-- 이미지 읽기/쓰기
-- 흑백 변환 (Grayscale)
-- 색상 공간 변환 (RGB, HSV)
-
-### 4. 기본 딥러닝 (TensorFlow/Keras)
-- Dense 신경망 구조
-- MNIST 손글씨 인식
-- 회귀 문제 (시험 점수 예측)
-- 이진 분류 (Binary Classification) 입문
-- Pooling 연산 이해
-
-## 📂 디렉토리 구조
-
+### 2. 결과 폴더 구조
 ```
 미래유망_1학년/
-├── numpy/                        # NumPy 학습 자료
-│   ├── NumPy_01.ipynb           # 기본 배열 연산
-│   ├── NumPy_02.ipynb           # 고급 연산
-│   └── numpy_정리.ipynb          # NumPy 요약
-├── pandas/                        # Pandas 학습 자료
-│   ├── pandas.ipynb              # 기본 데이터프레임
-│   ├── pandas2.ipynb             # 데이터 조작
-│   ├── pandas_3.ipynb            # 심화 내용
-│   └── Pandas_정리.ipynb         # Pandas 요약
-├── Matplotlib/                    # Matplotlib 학습 자료
-│   ├── Matplotlib_01.ipynb       # 기본 플롯
-│   ├── Matplotlib_02.ipynb       # 고급 시각화
-│   └── Matplotlib_정리.ipynb     # Matplotlib 요약
-├── openCV_01_grayscale.ipynb     # 흑백 이미지 처리
-├── openCV_2_color.ipynb          # 색상 이미지 처리
-├── Deep_Learning_01_손글씨 분류.ipynb    # 신경망 기초
-├── Deep_Learning_02_시험 점수 예측.ipynb # 회귀 문제
-├── Deep_Learning_03_이진분류.ipynb      # 분류 문제
-├── Deeplearning_손글씨_CNN.ipynb        # CNN 입문
-├── numpy_random_Deep_Laerning.ipynb      # 난수와 딥러닝
-├── pooling_01.ipynb              # Pooling 연산
-├── 과제1.ipynb                   # 과제
-├── 용어_EX.ipynb                 # 용어 정리
-├── 실습1.ipynb                   # 실습
-└── 실습/                         # 실습 폴더
-    ├── one.ipynb
-    ├── two.ipynb
-    └── titanic.zip
+├── Matplotlib/
+│   ├── results/          ← 모든 그래프가 여기에 저장됨
+│   └── *.ipynb
+├── pandas/
+│   ├── results/          ← 모든 CSV, Excel, 그래프 저장
+│   └── *.ipynb
+├── numpy/
+│   ├── results/          ← 모든 NPY, CSV, 그래프 저장
+│   └── *.ipynb
+└── README.md
 ```
 
-## 🛠 기술 스택
+### 3. 그래프 자동 저장
+모든 `plt.show()` 전에 자동으로 `plt.savefig()`가 실행됩니다:
+```python
+# 자동 추가됨
+plt.savefig('results/filename.png', dpi=300, bbox_inches='tight')
+plt.show()
+```
 
-- **프로그래밍 언어**: Python 3.7+
-- **데이터 처리**: NumPy, Pandas
-- **시각화**: Matplotlib, Seaborn
-- **이미지 처리**: OpenCV 4.x
-- **딥러닝**: TensorFlow 2.x, Keras
-- **환경**: Google Colab, Jupyter Notebook
+**저장 설정:**
+- 형식: PNG (무손실)
+- 해상도: DPI 300 (인쇄용 고품질)
+- 여백: 자동 최적화
 
-## 📖 학습 모듈별 설명
+## 📁 각 폴더 설명
 
-### NumPy 모듈
-- 배열 생성 및 초기화
-- 배열 연산 (기본, 브로드캐스팅)
-- 선형대수 함수
-- 난수 생성 및 통계 함수
+### Matplotlib 폴더
+- **학습 내용**: 기본 그래프 작성, 스타일, 커스터마이징
+- **저장되는 파일**:
+  - 선 그래프 이미지
+  - 산점도 이미지
+  - 히스토그램 이미지
+  - 기타 matplotlib 시각화
+- **파일 수**: ~50개 그래프
 
-### Pandas 모듈
-- Series와 DataFrame 이해
-- 데이터 인덱싱 및 선택
-- 결측치 처리 기초
-- 그룹화 및 병합
+### pandas 폴더
+- **학습 내용**: 데이터프레임 생성, 조작, 시각화
+- **저장되는 파일**:
+  - CSV 파일 (데이터)
+  - Excel 파일 (데이터)
+  - JSON 파일 (데이터)
+  - PNG 이미지 (그래프)
+- **파일 수**: 다양한 데이터 + ~10개 그래프
 
-### Matplotlib 모듈
-- Figure와 Axes 객체
-- 다양한 플롯 유형
-- 서브플롯 생성
-- 스타일 및 색상 커스터마이징
+### numpy 폴더
+- **학습 내용**: 배열 생성, 연산, 데이터 저장
+- **저장되는 파일**:
+  - NPY 파일 (numpy 배열)
+  - CSV 파일 (배열 데이터)
+  - TXT 파일 (배열 데이터)
+  - PNG 이미지 (시각화)
+- **파일 수**: 다양한 배열 + ~10개 그래프
 
-### OpenCV 모듈
-- 이미지 읽기/쓰기/표시
-- 색공간 변환
-- 이미지 처리 기초
+## 🚀 사용 방법
 
-### 딥러닝 모듈
-- Sequential 모델 구축
-- Dense 레이어 이해
-- 활성화 함수 (ReLU, Sigmoid, Softmax)
-- 손실 함수 및 최적화기
-- 모델 학습 및 평가
+### Jupyter Notebook 실행
+1. 각 폴더의 `.ipynb` 파일 열기
+2. 노트북 실행 (Shift + Enter)
+3. 모든 출력은 자동으로 `results/` 폴더에 저장됨
 
-## 🎓 주요 학습 포인트
+### 결과 확인
+```
+Matplotlib/results/
+├── Matplotlib_1_2.png
+├── Matplotlib_2_2.png
+└── ... (총 50개+)
+```
 
-1. **배열 기반 연산**: NumPy를 통한 효율적인 수치 계산
-2. **데이터 조작**: Pandas를 통한 실제 데이터 처리
-3. **데이터 시각화**: 차트를 통한 패턴 인식
-4. **이미지 처리**: OpenCV 기초 조작
-5. **신경망 기초**: 간단한 Dense 네트워크 구현
-6. **분류 및 회귀**: 두 가지 기본 문제 유형 이해
+### 저장된 파일 초기화
+```bash
+# results 폴더 내용 삭제
+rm -r Matplotlib/results/*
+rm -r pandas/results/*
+rm -r numpy/results/*
 
-## 📊 학습 난이도
+# 또는 수동으로 폴더 열어서 파일 삭제
+```
 
-| 모듈 | 난이도 | 소요 시간 |
-|------|--------|---------|
-| NumPy | ⭐⭐☆☆☆ | 1-2주 |
-| Pandas | ⭐⭐⭐☆☆ | 2-3주 |
-| Matplotlib | ⭐⭐☆☆☆ | 1-2주 |
-| OpenCV | ⭐⭐⭐☆☆ | 1-2주 |
-| 딥러닝 기초 | ⭐⭐⭐⭐☆ | 2-3주 |
+## 📊 파일 생성 현황
 
-## 💾 학습 커리큘럼
+| 폴더 | 파일 | 그래프 수 | 데이터 파일 |
+|------|------|---------|-----------|
+| **Matplotlib** | 3개 | ~50개 | - |
+| **pandas** | 2개 | ~10개 | CSV, Excel, JSON |
+| **numpy** | 2개 | ~10개 | NPY, CSV, TXT |
 
-### Week 1-2: NumPy 기초
-- 배열 생성 및 속성
-- 기본 연산 및 브로드캐스팅
-- 통계 함수
+## ⚙️ 기술 세부사항
 
-### Week 3-4: Pandas 기초
-- Series와 DataFrame
-- 데이터 인덱싱
-- 데이터 결합
+### 한국어 폰트 설정 코드
+```python
+import matplotlib.pyplot as plt
+import platform
 
-### Week 5-6: Matplotlib 기초
-- 기본 플롯 생성
-- 다중 플롯
-- 스타일 지정
+system = platform.system()
+if system == 'Windows':
+    plt.rcParams['font.family'] = 'Malgun Gothic'
+elif system == 'Darwin':
+    plt.rcParams['font.family'] = 'AppleGothic'
+else:
+    plt.rcParams['font.family'] = 'Noto Sans CJK JP'
 
-### Week 7: OpenCV 기초
-- 이미지 읽기/쓰기
-- 색공간 변환
-- 기본 필터
+plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['figure.dpi'] = 100
+```
 
-### Week 8-10: 딥러닝 기초
-- 신경망 구조 이해
-- MNIST 손글씨 인식
-- 회귀 및 분류 문제
-- CNN 기초
+### 그래프 저장 코드
+```python
+plt.savefig('results/filename.png', dpi=300, bbox_inches='tight')
+plt.show()
+```
 
-## 🔍 주요 실습 프로젝트
+## 🐛 문제 해결
 
-### 1. 손글씨 숫자 인식 (MNIST)
-- 28×28 흑백 이미지 분류
-- 10개 클래스 (0-9)
-- Dense 신경망 사용
-- 예상 정확도: ~95%
+### 그래프가 결과 폴더에 저장되지 않는 경우
+1. `results/` 폴더가 존재하는지 확인
+2. 경로가 맞는지 확인 (`results/filename.png`)
+3. 쓰기 권한이 있는지 확인
 
-### 2. 시험 점수 예측
-- 회귀 문제
-- 선형 관계 학습
-- Dense 네트워크 활용
+### 한국어가 깨지는 경우
+1. 해당 폰트가 설치되어 있는지 확인
+2. 캐시 초기화: 
+   ```python
+   import matplotlib
+   matplotlib.font_manager.rebuild()
+   ```
 
-### 3. 이진 분류 문제
-- 두 개 클래스 분류 입문
-- Sigmoid 활성화 함수
-- Binary Crossentropy 손실 함수
+### results 폴더 생성 오류
+```python
+import os
+os.makedirs('results', exist_ok=True)
+```
 
-### 4. 이미지 처리
-- 흑백 변환
-- 색상 공간 변환
-- 기본 필터 적용
+## 📝 노트북별 상세 설명
 
-## 🎯 성취 목표
+### Matplotlib 폴더
+- `Matplotlib_01.ipynb`: 기본 플롯 (14개 그래프 저장)
+- `Matplotlib_02.ipynb`: 스타일 및 포맷 (14개 그래프 저장)
+- `Matplotlib_정리.ipynb`: 종합 가이드 (22개 그래프 저장)
 
-✅ NumPy와 Pandas를 통한 데이터 처리 능력  
-✅ Matplotlib을 통한 데이터 시각화 기술  
-✅ OpenCV를 통한 이미지 처리 기초  
-✅ Keras를 통한 간단한 신경망 구현  
-✅ 머신러닝 문제의 기본 개념 이해
+### pandas 폴더
+- `pandas.ipynb`: 기본 개념
+- `pandas2.ipynb`: 데이터 조작 + CSV 저장
+- `pandas_3.ipynb`: 고급 기능 + CSV 저장
+- `Pandas_정리.ipynb`: 종합 가이드 (CSV, Excel, JSON 저장)
+- `pandas_응용.ipynb`: 실습 프로젝트 (그래프 저장)
+- `pandas_프로젝트.ipynb`: 데이터 분석 프로젝트 (그래프 저장)
 
-## 📚 상세 학습 기록
+### numpy 폴더
+- `NumPy_01.ipynb`: 기본 배열
+- `NumPy_02.ipynb`: 배열 연산
+- `numpy_정리.ipynb`: 종합 정리 (NPY, CSV 저장)
+- `numpy_응용.ipynb`: 실습 (그래프 저장)
+- `numpy_프로젝트.ipynb`: 프로젝트 (그래프 저장)
 
-각 파일별 상세한 학습 내용은 [STUDY_DETAILS.md](./STUDY_DETAILS.md)를 참고하세요.
+## 🔗 관련 문서
+- `SETUP_SUMMARY.md`: 전체 설정 요약
+- `GRAPH_SAVE_REPORT.md`: 그래프 저장 상세 보고
 
-## 💡 다음 단계
+## ✨ 주요 특징
 
-이 학습 과정을 마친 후의 추천 진행 경로:
+✅ **자동화**: 한번 설정하면 모든 출력이 자동으로 정리됨
+✅ **일관성**: 모든 파일이 같은 폴더에 저장됨
+✅ **한국어 지원**: 한글이 깨지지 않음
+✅ **고품질**: 그래프가 300 DPI로 저장됨
+✅ **다양한 포맷**: PNG, CSV, Excel, JSON, NPY 등 지원
 
-1. 머신러닝 알고리즘 학습 (scikit-learn)
-2. 더 복잡한 데이터셋 분석
-3. CNN을 통한 고급 이미지 분류
-4. 데이터 전처리 심화
-5. 실제 프로젝트 구현
+## 📞 문의 및 피드백
+
+문제가 발생하면:
+1. `results/` 폴더 확인
+2. 파일 경로 확인
+3. 쓰기 권한 확인
 
 ---
 
-**Last Updated**: 2024년 11월  
-**학습 기간**: 2024년 9월 ~ 11월 (약 3개월)  
-**총 노트북 파일**: 20개 이상
+**마지막 업데이트**: 2026-07-14
+**상태**: ✅ 모든 설정 완료
+**총 수정 파일**: 19개 (한국어 폰트) + 12개 (출력 경로)
